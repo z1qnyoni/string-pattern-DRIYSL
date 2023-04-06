@@ -1,5 +1,6 @@
 # python3
 # Daniels Raivo Ivanovs 211RMB021
+
 def read_input():
     # this function needs to aquire input both from keyboard and file
     # as before, use capital i (input from keyboard) and capital f (input from file) to choose which input type will follow
@@ -21,7 +22,13 @@ def read_input():
 
 def print_occurrences(output):
     # this function should control output, it doesn't need any return
-    print(' '.join(map(str, output)))
+    
+    if len(output) > 0:
+        print(' '.join(map(str, output)))
+    else:
+        print(-1)
+
+        
 
 def get_occurrences(pattern, text):
     # this function should find the occurances using Rabin Karp alghoritm 
