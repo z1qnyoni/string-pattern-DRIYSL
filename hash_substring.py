@@ -17,17 +17,7 @@ def read_input():
         print("Invalid input type, Try Again!!")
         return None
             
-        
-    
-    # after input type choice
-    # read two lines 
-    # first line is pattern 
-    # second line is text in which to look for pattern 
-    
-    # return both lines in one return
-    
-    # this is the sample return, notice the rstrip function
-    return (text, pattern)
+    return (pattern, text)
 
 def print_occurrences(output):
     # this function should control output, it doesn't need any return
