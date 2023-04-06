@@ -21,12 +21,7 @@ def read_input():
     return (pattern, text)
 
 def print_occurrences(output):
-    # this function should control output, it doesn't need any return
-    
-    if len(output) > 0:
-        print(' '.join(map(str, output)))
-    else:
-        print(-1)
+    print(' '.join(map(str, output)))
 
         
 
