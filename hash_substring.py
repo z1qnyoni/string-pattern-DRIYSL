@@ -14,7 +14,7 @@ def read_input():
         with open(file, 'r') as f:
             text = f.readline().rstrip()
             pattern = f.readline().rstrip()
-     else:
+    else:
         print("Invalid input type, Try Again!!")
         return None
             
