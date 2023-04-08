@@ -4,10 +4,10 @@
 def read_input():
     # this function needs to aquire input both from keyboard and file
     # as before, use capital i (input from keyboard) and capital f (input from file) to choose which input type will follow
-    input_type = input().rstrip()
+    input_type = input().strip().upper()
     
-    pattern = input().rstrip()
-    text = input().rstrip()
+    pattern = input().strip()
+    text = input().strip()
    
     return (input_type, pattern, text)
 
@@ -23,19 +23,30 @@ def get_occurrences(input_type, pattern, text):
     occurrences = []
     
     if input_type == "I":
+        
+        p_hash = hash(pattern)
+        t_hash = hash(text[:p])
         for i in range(t - p + 1):
-            occurrences.append(i)
-    elif input_type == "F":
-        pattern_hash = sum(ord(pattern[i]) * pow(10, p - i - 1) for i in range(p))
-        text_hash = sum(ord(text[i]) * pow(10, p - i - 1) for i in range(p))
-        for i in range(t - p + 1):
-            if text_hash == pattern_hash:
-                if text[i:i + p] == pattern:
+            if p_hash == t_hash:
+                if text[i: i + p] == pattern:
                     occurrences.append(i)
+            if i < t - p:
+                t_hash = t_hash - ord(text[i]) + ord(text[i + p])
+    elif input_type == "F":
+        
+        pattern_hash = sum(ord(pattern[i]) * pow(10, p - i - 1) for i in range(p))
+        with open(text, 'r') as file:
+            file_text = file.read()
+            t_hash = sum(ord(file_text[i]) * pow(10, p - i - 1) for i in range(p))
+        
+            for i in range(t - p + 1):
+                if t_hash == pattern_hash:
+                    if file_text[i:i + p] == pattern:
+                        occurrences.append(i)
             
             
-            if i < t -p:
-                text_hash = (text_hash - ord(text[i]) * pow(10, p - 1)) * 10 + ord(text[i +p])
+                if i < t -p:
+                    text_hash = (t_hash - ord(file_text[i]) * pow(10, p - 1)) * 10 + ord(file_text[i +p])
                 
     return occurrences             
                 
