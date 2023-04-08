@@ -40,7 +40,7 @@ def get_occurrences(input_type, pattern, text):
             
             
             if i < t -p:
-                text_hash = (t_hash - ord(file_text[i]) * pow(10, p - 1)) * 10 + ord(file_text[i +p])
+                text_hash = (text_hash - ord(text[i]) * pow(10, p - 1)) * 10 + ord(text[i +p])
                 
     return occurrences             
                 
