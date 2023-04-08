@@ -24,7 +24,7 @@ def get_occurrences(input_type, pattern, text):
     
     if input_type == "I":
         for i in range(t - p + 1):
-            occurences.append(i)
+            occurrences.append(i)
     elif input_type == "F":
         pattern_hash = sum(ord(pattern[i]) * pow(10, p - i - 1) for i in range(p))
         text_hash = sum(ord(text[i]) * pow(10, p - i - 1) for i in range(p))
