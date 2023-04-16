@@ -14,12 +14,15 @@ def read_input():
         return(input_type, pattern, text)
 
     elif input_type == "F":
-        file = input().strip()
-        with open(f'tests/{file}', 'r') as file:
-            pattern = file.readline().strip()
-            text = file.readline().strip()
-            return(input_type, pattern, text)
-        
+        try:
+            file = input().strip()
+            with open(f'./tests/{file}') as file:
+                
+                pattern = file.readline().strip()
+                text = file.readline().strip()
+        except:
+            print('ERROR')
+            return
     else:
         print("Invalid character, please try again")
         exit()
