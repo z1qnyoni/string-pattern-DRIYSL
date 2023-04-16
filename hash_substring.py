@@ -14,8 +14,8 @@ def read_input():
         return(input_type, pattern, text)
 
     elif input_type == "F":
-        file_name = input().strip()
-        with open(file_name) as file:
+        file = input().strip()
+        with open(f'tests/{file}', 'r') as file:
             pattern = file.readline().strip()
             text = file.readline().strip()
             return(input_type, pattern, text)
