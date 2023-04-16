@@ -9,16 +9,16 @@ def read_input():
 
 
     if input_type == "I":
-        pattern = input()
-        text = input()
-        return(pattern.rstrip(), text.rstrip())
+        pattern = input().strip()
+        text = input().strip()
+        return(input_type, pattern, text)
 
     elif input_type == "F":
         name = 'tests/06'
         with open(name) as file:
-            pattern = file.readline()
-            text= file.readline()
-            return(pattern.rstrip(), text.rstrip())  
+            pattern = file.readline().strip()
+            text= file.readline().strip()
+            return(input_type, pattern, text)  
     else:
         print("Invalid character, please try again")
         exit()
