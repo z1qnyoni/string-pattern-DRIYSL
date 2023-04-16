@@ -8,6 +8,11 @@ def read_input():
     
     pattern = input().strip()
     text = input().strip()
+    
+    if input_type == "F":
+        with open(pattern, 'r') as f:
+            pattern = f.readline().strip()
+            text = f.readline().strip()
    
     return (input_type, pattern, text)
 
@@ -22,14 +27,12 @@ def get_occurrences(input_type, pattern, text):
     p = len(pattern)
     occurrences = []
     
-    if input_type == "I":
-        
-        
+    if input_type == "I":    
         for i in range(t - p + 1):
             if text[i: i + p] == pattern:
                 occurrences.append(i)
-    elif input_type == "F":
-        
+    
+    elif input_type == "F":    
         pattern_hash = sum(ord(pattern[i]) * pow(10, p - i - 1) for i in range(p))
         text_hash = sum(ord(text[i]) * pow(10, p - i - 1) for i in range(p))
         
