@@ -6,15 +6,22 @@ def read_input():
     # as before, use capital i (input from keyboard) and capital f (input from file) to choose which input type will follow
     input_type = input().strip().upper()
     
-    pattern = input().strip()
-    text = input().strip()
-    
-    if input_type == "F":
-        with open(pattern, 'r') as f:
-            pattern = f.readline().strip()
-            text = f.readline().strip()
+    if input_type == 'I':
+        pattern = input().strip()
+        text = input().strip()
+        return (input_type, pattern, text)
+
+    elif input_type == "F":
+        file_name = input().strip()
+        with open(file_name) as file:
+            pattern = file.readline().strip()
+            text = file.readline().strip()
+            return (input_type, pattern, text)
+    else:
+        print("Invalid character, please try again")
+        exit()
+
    
-    return (input_type, pattern, text)
 
 def print_occurrences(output):
     print(' '.join(map(str, output)))
