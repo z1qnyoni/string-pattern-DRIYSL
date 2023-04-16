@@ -9,9 +9,9 @@ def read_input():
 
 
     if input_type == "I":
-        pattern = input().strip()
-        text = input().strip()
-        return(input_type, pattern, text)
+        pattern = input()
+        text = input()
+        return(pattern.rstrip(), text.rstrip())
 
     elif input_type == "F":
         name = 'tests/06'
